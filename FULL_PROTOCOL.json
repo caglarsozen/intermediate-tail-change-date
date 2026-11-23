@@ -1,0 +1,77 @@
+{
+  "created_utc": "2026-11-19T12:54:13.158461+00:00",
+  "status": "fixed_before_new_random_results",
+  "data": "SYNTHETIC iid Clayton1 with uniform support location break; no empirical dataset",
+  "full": {
+    "n": [
+      2048,
+      8192,
+      32768,
+      131072
+    ],
+    "gamma": [
+      0.25,
+      0.5,
+      1
+    ],
+    "replications_per_cell": 2000,
+    "B": 19,
+    "alpha": 0.05,
+    "tau": 0.5,
+    "trim": 0.1,
+    "seed": 2026111907
+  },
+  "smoke": {
+    "n": [
+      2048,
+      131072
+    ],
+    "gamma": [
+      0.5
+    ],
+    "replications_per_cell": 2,
+    "B": 19,
+    "seed": 2026111908
+  },
+  "full_counts": {
+    "cells": 12,
+    "evaluations": 24000,
+    "calibrations": 456000,
+    "datasets": 480000,
+    "synthetic_bivariate_observations": 20889600000
+  },
+  "resources": {
+    "foreground_workers": 1,
+    "replications_per_chunk": 10,
+    "seconds_per_R_subprocess": 240,
+    "new_downloads": 0,
+    "installs": 0
+  },
+  "primary_estimands": [
+    "Null rejection probability of oracle, raw-mean CUSUM and known-endpoint date per cell",
+    "Paired CUSUM-minus-oracle and endpoint-minus-oracle rejection differences per cell"
+  ],
+  "inference": {
+    "pointwise_rates": "95% Clopper-Pearson",
+    "paired_pointwise": "Difference of discordant-binomial intervals with union bound",
+    "MCSE": "Binomial plug-in for rates; sample SD/sqrt(R) for paired differences",
+    "simultaneous_family": "0.025 error across36 rate intervals +0.025 across24 paired intervals using48 discordant components; no independence needed across methods",
+    "secondary": "Date errors, process residuals and frequencies explicitly exploratory; approximate t intervals for means"
+  },
+  "fixed_rules": [
+    "Fresh19 calibration datasets independent of evaluation per replication; same19 shared across three methods for pairing",
+    "Known break/copula in calibration; no estimated-nuisance claim",
+    "No retuning/optional stopping/seed replacement; all cells and failed partial attempts preserved",
+    "Resume uses identical seed assignments, not new draws; only verified committed chunks contribute once",
+    "Old pilot and negative/inconclusive outcomes retained; this is a new fixed evaluation informed by that exploratory pilot",
+    "No equivalence, superiority, novelty or publication conclusion from nonsignificance",
+    "No finite-n or diagonal-limit52.5% target; fixed-gamma asymptotic result only"
+  ],
+  "source_lineage": {
+    "old_R_sha256": "044d167d9711ac23f57f8f7a16508bdbdf57a13d8f11c405ad9a671699f528a1",
+    "old_R_modified": false,
+    "reused": "DGP, ranks, CUSUM, endpoint, exact integral, diagnostics, intervals and deterministic fixtures",
+    "new": "Larger fixed profile, isolated deterministic seeds, restartable bounded chunks, calibration-tie frequencies"
+  },
+  "human_review_and_full_text_comparison_outstanding": true
+}

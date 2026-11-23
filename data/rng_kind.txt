@@ -1,0 +1,1 @@
+[1] "L'Ecuyer-CMRG" "Inversion"     "Rejection"    
